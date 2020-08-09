@@ -25,7 +25,7 @@ exports.getTasks = (req, res, done)=>{
       dateCreated: Date()
     }
   ];
-  return res.send(task);
+  return res.send(tasks);
 };
 
 exports.sayHello = (req, res, done)=>{
