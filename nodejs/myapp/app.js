@@ -1,11 +1,11 @@
 // imports
 const express = require('express'),
   app = express(),
-  taskService = require("./Source/Services/Task_Service"),
+  taskService = require("./Source/Services/TaskService"),
   hostname = '127.0.0.1',
   port = 3000;
 
-app.use((express.json)),
+// app.use((express.json)),
 
 app.get("/", (req, res, done)=> taskService.sayHello);
 app.get("/getTasks", taskService.getTasks);
