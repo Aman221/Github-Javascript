@@ -11,6 +11,6 @@ app.get("/", (req, res, done)=> taskService.sayHello);
 app.get("/getTasks", taskService.getTasks);
 app.get("/getMyProfile", taskService.getMyProfile);
 
-app.listen(port, hostname, () => {
+app.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
