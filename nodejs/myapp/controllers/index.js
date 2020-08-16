@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { json } = require("express");
     taskService = require('../services/TaskService');
 
@@ -22,3 +23,5 @@ module.exports = (() => {
     return self;
 
 });
+=======
+>>>>>>> parent of d8cf180... Separation of secretary, gopher, and workers
