@@ -1,16 +1,12 @@
 const { json } = require("express");
+    taskService = require('../services/TaskService');
 
-modules.exports = (() => {
+module.exports = (() => {
     let self= {};
 
     self.getTask = (req, res, done) => {
-        let task = taskService.findALL();
+        let task = taskService.getTasks();
         res.json(task);
-    };
-
-    self.create = (req, res, done) => {
-        let newTask = service.add(task)
-        res.json(newTask);
     };
 
     self.sayHello = (res, req, done) => {
@@ -19,7 +15,8 @@ modules.exports = (() => {
     };
 
     self.getMyProfile = (req, res, done) => {
-
+        let profile = taskService.getMyProfile();
+        res.send(profile);
     };
 
     return self;

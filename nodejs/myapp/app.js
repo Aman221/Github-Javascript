@@ -3,7 +3,7 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   app = express(),
   router = require('./routes/routes'),
-  taskService = require("./services/TaskService"),
+  taskService = require('./services/TaskService'),
   hostname = '127.0.0.1',
   port = 3000;
 
