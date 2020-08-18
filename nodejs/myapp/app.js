@@ -2,12 +2,7 @@
 const express = require('express'),
   bodyParser = require('body-parser'),
   app = express(),
-<<<<<<< HEAD
-  router = require('./routes/routes'),
-  taskService = require('./services/TaskService'),
-=======
   taskService = require("./services/TaskService"),
->>>>>>> parent of d8cf180... Separation of secretary, gopher, and workers
   hostname = '127.0.0.1',
   port = 3000;
 
@@ -16,6 +11,8 @@ app.use(bodyParser.json({extender: true, limit: "20mb"}));
 app.get("/", taskService.sayHello);
 app.get("/getTasks", taskService.getTasks);
 app.get("/getMyProfile", taskService.getMyProfile);
+app.get("/getTask:id", taskService.getSpecificTask)
+// app.post("/addtask", taskService.addtask)
 
 app.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`);

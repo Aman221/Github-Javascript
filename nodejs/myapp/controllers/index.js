@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const { json } = require("express");
     taskService = require('../services/TaskService');
 
@@ -20,8 +19,14 @@ module.exports = (() => {
         res.send(profile);
     };
 
+    self.getSpecificTask = (req, res, done) => {
+        res.render('test', {output: req.params.id});
+    };
+    // self.addTask = (req, res, done) => {
+    //     let newtask = taskService.addtask();
+    //     res.render(newtask);
+    // };
+
     return self;
 
 });
-=======
->>>>>>> parent of d8cf180... Separation of secretary, gopher, and workers

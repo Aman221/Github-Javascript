@@ -1,7 +1,25 @@
+const { array } = require("joi");
+
 module.exports = (() => {
   let self = {};
+  let tasks = [
+    {
+      id: "1",
+      title: "Task One",
+      date: "2020-07-18",
+      status: "new",
+      dateCreated: Date()
+    },
+    {
+      id: "2",
+      title: "Task One",
+      date: "2020-07-18",
+      status: "new",
+      dateCreated: Date()
+    }
+  ];
 
-  self.getMyProfile = (req, res, done)=>{
+  self.getMyProfile = (req, res)=>{
     let user = {
       name: "Aman",
       email: "me@gmail.com",
@@ -11,32 +29,28 @@ module.exports = (() => {
     return res.send(user);
   };
 
-  self.getTasks = (req, res, done)=>{
-    let tasks = [
-      {
-        id: "1",
-        title: "Task One",
-        date: "2020-07-18",
-        status: "new",
-        dateCreated: Date()
-      },
-      {
-        id: "2",
-        title: "Task One",
-        date: "2020-07-18",
-        status: "new",
-        dateCreated: Date()
-      }
-    ];
+  self.getTasks = (req, res)=>{
     return res.send(tasks);
   };
 
-  self.sayHello = (req, res, done)=>{
+  self.sayHello = (req, res)=>{
     return res.send({
         action: "default",
         message: "hello world"
     });
   };
   
+  self.getSpecificTask = (req, res)=>{
+    let parsedTasks = JSON.parse(tasks);
+    return res.send(parsedTasks.fetchedID)
+  };
+  
+  // self.addtask = (req, res)=>{
+  //   let newTask = req.body.newTask;
+  //   tasks.push(newTask);
+  //   res.redirect('/');
+  //   tasks(array)
+  // };
+
   return self;
 })();
