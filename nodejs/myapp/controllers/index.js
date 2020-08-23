@@ -20,7 +20,7 @@ module.exports = (() => {
     };
 
     self.getSpecificTask = (req, res, done) => {
-        res.render('test', {output: req.params.id});
+        res.send({output: req.params.id});
     };
     // self.addTask = (req, res, done) => {
     //     let newtask = taskService.addtask();

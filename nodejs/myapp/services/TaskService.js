@@ -1,5 +1,3 @@
-const { array } = require("joi");
-
 module.exports = (() => {
   let self = {};
   let tasks = [
@@ -40,9 +38,8 @@ module.exports = (() => {
     });
   };
   
-  self.getSpecificTask = (req, res)=>{
-    let parsedTasks = JSON.parse(tasks);
-    return res.send(parsedTasks.fetchedID)
+  self.getSpecificTask = (req, res, )=>{
+    return res.send(tasks)
   };
   
   // self.addtask = (req, res)=>{

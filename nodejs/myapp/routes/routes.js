@@ -1,9 +1,9 @@
 const controller = require('../controllers/index');
 
-exports.include = (app) => {
+exports.include = ((app) => {
     app.get("/", controller.sayHello);
-    app.get("/getTasks", controller.getTask);
-    app.get("/getMyProfile", controller.getMyProfile);
-    app.get("/getSpeciicTasks/:id", controller.getSpecificTask);
+    app.get("/task", controller.getTask);
+    app.get("/profile", controller.getMyProfile);
+    app.get("/task/:id", controller.getSpecificTask);
     // app.post('/addtask', controller.addTask);
-};
+});
