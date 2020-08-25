@@ -1,53 +1,71 @@
 module.exports = (() => {
   let self = {};
-  let tasks = [
-    {
+  let tasks = {
+    "1": {
       id: "1",
       title: "Task One",
       date: "2020-07-18",
       status: "new",
       dateCreated: Date()
     },
-    {
+    "2": {
       id: "2",
       title: "Task One",
       date: "2020-07-18",
       status: "new",
       dateCreated: Date()
     }
-  ];
+  };
 
-  self.getMyProfile = (req, res)=>{
+  self.sayHello = ()=>{
+    return {
+        action: "default",
+        message: "hello world"
+    };
+  };
+
+  self.getMyProfile = ()=>{
     let user = {
       name: "Aman",
       email: "me@gmail.com",
       phone: "999-9999",
       favoriteColor: "Blue"
     };
-    return res.send(user);
+    return user;
   };
 
-  self.getTasks = (req, res)=>{
-    return res.send(tasks);
+  self.getTasks = ()=>{
+    let taskList = [];
+    for(key in tasks){
+      let task = tasks[key];
+      taskList.push(task)
+    }
+    return taskList;
+  };
+  
+  self.getTaskById = (taskId)=>{
+    let task = tasks[taskId];
+    return task;
   };
 
-  self.sayHello = (req, res)=>{
-    return res.send({
-        action: "default",
-        message: "hello world"
-    });
+  self.deleteTask = (taskId)=>{
+    try{
+      delete tasks[taskId];
+      return true;
+    }catch(e){
+      return false;
+    }
   };
   
-  self.getSpecificTask = (req, res, )=>{
-    return res.send(tasks)
+  self.addTask = (newTask)=>{
+    const id = (new Date().getTime());
+    newTask.id = id;
+    newTask.dateCreated = new Date()
+    newTask.status = "New";
+
+    tasks[id] = newTask;
+    return newTask;  
   };
-  
-  // self.addtask = (req, res)=>{
-  //   let newTask = req.body.newTask;
-  //   tasks.push(newTask);
-  //   res.redirect('/');
-  //   tasks(array)
-  // };
 
   return self;
 })();
