@@ -17,11 +17,10 @@ module.exports=(()=>{
     } 
     let self= {};
     self.sayHello = ()=>{
-        let welcomemessage = {
+        return {
             action: "default",
             message: "hello world"
         };
-        return welcomemessage;
     };
     self.getMyProfile = ()=>{
         let user = {

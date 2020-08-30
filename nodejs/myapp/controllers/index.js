@@ -11,7 +11,7 @@ module.exports = (() => {
 
     self.getTask = (req, res, done) => {
         let task = taskService.getTasks();
-        res.json(task);
+        return res.json(task);
     };
 
     self.getMyProfile = (req, res, done) => {

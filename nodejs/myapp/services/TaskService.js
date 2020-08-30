@@ -1,36 +1,36 @@
-const Repo = require('./services/repoService');
+const Repo = require('../services/repoService');
 
 module.exports = (() => {
   let self = {};
 
   self.sayHello = ()=>{
-    let greeting = Repo.findAll();
-    return welcomemessage;
+    let greeting = Repo.sayHello();
+    return greeting;
   };
 
   self.getMyProfile = ()=>{
-    let profile = Repo.findAll();
-    return user;
+    let profile = Repo.getMyProfile();
+    return profile;
   };
 
   self.getTasks = ()=>{
-    let task = Repo.findAll();
+    let taskList = Repo.getTasks();
     return taskList;
   };
   
-  self.getTaskById = ()=>{
-    let specifictask = Repo.findAll();
-    return task;
+  self.getTaskById = (taskID)=>{
+    let specifictask = Repo.getTaskById(taskID);
+    return specifictask;
   };
 
   self.deleteTask = (taskID)=>{
-    let deletedtask = Repo.deleteTask();
-    return taskID;
+    let deletedtask = Repo.deleteTask(taskID);
+    return deletedtask;
   };
   
-  self.addTask = ()=>{
-    let addedtask = Repo.findAll();
-    return newTask;  
+  self.addTask = (newTask)=>{
+    let addedtask = Repo.addTask(newTask);
+    return addedtask;  
   };
 
   return self;

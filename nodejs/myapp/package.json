@@ -9,6 +9,7 @@
   "author": "Amanuel Ayalew",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sql": "^0.78.0"
   }
 }
