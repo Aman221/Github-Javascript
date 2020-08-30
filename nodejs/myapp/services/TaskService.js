@@ -1,69 +1,35 @@
+const Repo = require('./services/repoService');
+
 module.exports = (() => {
   let self = {};
-  let tasks = {
-    "1": {
-      id: "1",
-      title: "Task One",
-      date: "2020-07-18",
-      status: "new",
-      dateCreated: Date()
-    },
-    "2": {
-      id: "2",
-      title: "Task One",
-      date: "2020-07-18",
-      status: "new",
-      dateCreated: Date()
-    }
-  };
 
   self.sayHello = ()=>{
-    return {
-        action: "default",
-        message: "hello world"
-    };
+    let greeting = Repo.findAll();
+    return welcomemessage;
   };
 
   self.getMyProfile = ()=>{
-    let user = {
-      name: "Aman",
-      email: "me@gmail.com",
-      phone: "999-9999",
-      favoriteColor: "Blue"
-    };
+    let profile = Repo.findAll();
     return user;
   };
 
   self.getTasks = ()=>{
-    let taskList = [];
-    for(key in tasks){
-      let task = tasks[key];
-      taskList.push(task)
-    }
+    let task = Repo.findAll();
     return taskList;
   };
   
-  self.getTaskById = (taskId)=>{
-    let task = tasks[taskId];
+  self.getTaskById = ()=>{
+    let specifictask = Repo.findAll();
     return task;
   };
 
-  self.deleteTask = (taskId)=>{
-    try{
-      delete tasks[taskId];
-      return true;
-    }catch(e){
-      return false;
-    }
+  self.deleteTask = (taskID)=>{
+    let deletedtask = Repo.deleteTask();
+    return taskID;
   };
   
-  self.addTask = (newTask)=>{
-    const id = (new Date().getTime());
-    newTask.id = id;
-    newTask.dateCreated = new Date()
-    newTask.status = "New";
-
-    tasks[id] = newTask;
+  self.addTask = ()=>{
+    let addedtask = Repo.findAll();
     return newTask;  
   };
 
