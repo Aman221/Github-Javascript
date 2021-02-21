@@ -60,6 +60,48 @@ module.exports=(()=>{
         tasks[id] = newTask;
         return newTask;  
     };
-    /** * Define methods heere */ 
+
     return self; 
 })();
+
+
+
+/*
+
+Adding part
+
+INSERT INTO `appschema`.`task`
+(`title`,
+`date`,
+`status`,
+`dateCreated`)
+VALUES
+('Task 1',
+'2020-09-01',
+'new',
+SYSDATE());
+
+
+Get Part
+
+SELECT * FROM `appschema`.`task`
+
+
+Get specific
+
+SELECT * FROM `appschema`.`task` WHERE id = 2
+
+
+Delete Specific
+
+DELETE FROM `appschema`.`task` WHERE id = 2
+
+
+Change Specific
+
+UPDATE `appschema`.`task` SET
+title = 'Fixed Task',
+status = 'unfinished'
+WHERE id = 1
+
+*/
